@@ -11,18 +11,27 @@ const imgMapper = {0: zero, 1: one, 2: two, 3: three, 4: four, 5: five}
 export default class CardBack extends Component {
 
   generateRatingElement = () => {
+    if (this.props.ImbdRating == null){
+      return <h4>No Rating </h4>
+    }
+    else{ 
+      return <img src={imgMapper[this.props.ImbdRating]} alt="IMDB rating: {this.props.ImbdRating}"/>
     // implement meeeee! See the readme for instructions
+    }
   }
 
   render() {
     return (
       <div className="card-back">
-        <h3 className="title"></h3>
+        <h3 className="title">{this.props.title}</h3>
         <span />
-        { /* your rating element should go here -- you can invoke methods within JSX, à la: this.myMethod() */ }
+        { this.generateRatingElement()/* your rating element should go here -- you can invoke methods within JSX, à la: this.myMethod() */ }
         <span />
-        <h5 className="genres"></h5>
+        <h5 className="genres">{this.props.genres} </h5>
       </div>
     )
   }
 }
+
+
+//ImbdRating = {this.props.ImbdRating}
