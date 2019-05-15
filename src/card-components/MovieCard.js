@@ -32,12 +32,25 @@ export default class MovieCard extends Component {
   render() {
     return (
       <div className="movie-card">
-        {/* which component should receive which props? */}
-        <CardFront />
-        <CardBack />
+        {
+          <CardFront poster={posterMap[this.props.poster]}/>  // poster map is an hash and using key as title we are passing a value 
+          
+          /* which component should receive which props? */}
+        
+        <CardBack title={this.props.title} 
+                  ImbdRating = {this.props.IMDBRating}
+                  genres={this.props.genres}
+        />
+
+
       </div>
     )
   }
 }
 
 // Don't forget your default props!
+
+
+
+// gets data from Movie Showcase 
+// title, ImdbRating , genres, poster,
