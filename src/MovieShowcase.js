@@ -4,8 +4,11 @@ import movieData from './data.js'
 
 export default class MovieShowcase extends Component {
 
+  //This is a class function (note the `= ()`). It can be used only within the class
   generateMovieCards = () => {
-    // map over your movieData array and return the correct 
+    return movieData.map(movie => {
+      return <MovieCard newMovie={movie} />
+      })
   }
 
   render() {
